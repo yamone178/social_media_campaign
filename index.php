@@ -7,59 +7,123 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    
+  <!-- <svg class="absolute inset-0 h-full w-full" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="pricing-pattern" width="32" height="32" patternUnits="userSpaceOnUse" x="50%" y="100%" patternTransform="translate(0 -1)"><path d="M0 32V.5H32" fill="none" stroke="currentColor"></path></pattern></defs><rect width="100%" height="100%" fill="url(#pricing-pattern)"></rect></svg> -->
     <nav>
+      <div>
+          <h3 class="title">SproutSpace</h3>
+      </div>
       <ul>
         <li class="link"><a href="index.php">Home</a></li>
         <li class="link"><a href="binformation.php">Information</a></li>
         <li class="link"><a href="blegislation.php">Legislation</a></li>
-        <li class="link"><a href="login.php">Login</a></li>
       </ul>
-      <form action="/search" method="get" class="search-input">
+
+      <div>
+         <a class="btn btn-light d-flex align-center" href="login.php">
+            <img class="mr-5" src="./images/account.png" alt="" width="20px" > 
+            Sign In
+          </a>
+      </div>
+      <!-- <form action="/search" method="get" class="search-input">
         <input type="text" id="search" name="search" placeholder="Search..." />
-        <button type="submit">Search</button>
-      </form>
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form> -->
     </nav>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
+    
+    <header class="divider-sm">
+      <div class="hero-section">
+          <div class="container justify-center align-center">
+             <div class="col-2">
+              <div class=" hero-text-container">
+                <div class="hero-text">
+                    <h2>Welcome to <span class="sprout">SproutSpace</span></h2>
+                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum a debitis commodi. Sequi ad explicabo nisi aut quos? Eos similique aut dignissimos ea nemo hic expedita, pariatur at omnis ducimus?</p>
+                    </div>
+
+                    <div class="hero-button">
+                        <a href="" class="btn btn-primary mr-20">Get Started</a>
+                        <a href="" class="btn btn-border">Something</a>
+                    </div>
+
+                </div>
+                
+               
+              </div>
+               
+              <div class="col-2 justify-center align-center">
+                  <div class="hero-img-container">
+                    <img class="hero-img" src="./images/img-5.jpg"  alt="">
+                    
+                  </div>
+              </div>
+             
+          </div>
+      </div>
     </header>
 
     <main>
       <section id="home">
-        <h2>Welcome to Our Campaign</h2>
-        <form action="/search" method="get">
+        <form action="/search" class="d-flex justify-center align-center" method="get">
           <input
             type="text"
             id="search"
             name="search"
             placeholder="Search..."
+            class="search mr-20"
           />
-          <button type="submit">Search</button>
+          <button type="submit" class=" search-btn btn btn-primary  ">
+              <img src="./images/search.png" alt="" width="20px">   
+          </button>
         </form>
-        <p>Empowering teenagers to navigate the digital world safely.</p>
+       
+        <div class="service-container">
+          <div class="web-service">
+            <h3>Online Safety Workshops</h3>
+            <p class=" mt-10">
+              Join our interactive workshops to learn about online safety and
+              responsible social media use.
+            </p>
+            <p class="mt-5"><strong>Date:</strong> November 15, 2024</p>
+            <p class="mt-5"><strong>Location:</strong> Virtual Event</p>
+            <p><a href="#" class="btn-sm btn-dark mt-10 service-register">Register Now</a></p> 
+          </div>
 
-        <!-- Web Service 1 -->
-        <div class="web-service">
-          <h3>Online Safety Workshops</h3>
-          <p>
-            Join our interactive workshops to learn about online safety and
-            responsible social media use.
-          </p>
-          <p><strong>Date:</strong> November 15, 2024</p>
-          <p><strong>Location:</strong> Virtual Event</p>
-          <a href="#">Register Now</a>
-        </div>
+          <div class="web-service">
+            <h3>Online Safety Workshops</h3>
+            <p class=" mt-10">
+              Join our interactive workshops to learn about online safety and
+              responsible social media use.
+            </p>
+            <p class="mt-5"><strong>Date:</strong> November 15, 2024</p>
+            <p class="mt-5"><strong>Location:</strong> Virtual Event</p>
+            <p><a href="#" class="btn-sm btn-dark mt-10 service-register">Register Now</a></p> 
+          </div>
 
-        <!-- Web Service 2 -->
-        <div class="web-service">
-          <h3>Anonymous Helpline</h3>
-          <p>
-            Need assistance or advice? Connect with our anonymous helpline for
-            support regarding online challenges.
-          </p>
-          <p><strong>Helpline:</strong> 1-800-123-4567</p>
-          <p><strong>Email:</strong> help@onlinesafety.org</p>
-        </div>
+          <div class="web-service">
+            <h3>Online Safety Workshops</h3>
+            <p class=" mt-10">
+              Join our interactive workshops to learn about online safety and
+              responsible social media use.
+            </p>
+            <p class="mt-5"><strong>Date:</strong> November 15, 2024</p>
+            <p class="mt-5"><strong>Location:</strong> Virtual Event</p>
+            <p><a href="#" class="btn-sm btn-dark mt-10 service-register">Register Now</a></p> 
+          </div>
+
+          <div class="web-service">
+            <h3>Online Safety Workshops</h3>
+            <p class=" mt-10">
+              Join our interactive workshops to learn about online safety and
+              responsible social media use.
+            </p>
+            <p class="mt-5"><strong>Date:</strong> November 15, 2024</p>
+            <p class="mt-5"><strong>Location:</strong> Virtual Event</p>
+            <p><a href="#" class="btn-sm btn-dark mt-10 service-register">Register Now</a></p> 
+          </div>
+      </div>
+
+      
 
         <!-- Most Popular Social Media Apps -->
         <section class="popular-apps">

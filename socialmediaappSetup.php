@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online Safety Campaign</title>
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="./style.css">
   </head>
   <?php 
 
@@ -12,8 +12,8 @@
   if(isset($_POST['btnSave']))
   {
      $name=$_POST['name'];
-     $link=$_POST['llink'];
-     $plink=$_POST['plink']; 
+     $link=$_POST['link'];
+     $plink=$_POST['privacylink']; 
 
      if(isset($_FILES["logo"]) && $_FILES["logo"]["error"]==0)
      {
@@ -26,12 +26,52 @@
      $sql="INSERT INTO socialmediaapps (name,logo,link,privacylink) VALUES ('$name','$filename','$link','$plink') ";
      if($conn->query($sql))
      {
+      move_uploaded_file($filepath, "images/".$filename);
        header("location:socialmediaappSetup.php");
      }
 
   }
+
+  if (isset($_GET['editId'])) {
+    $eid = $_GET['editId'];
+    $sql = "Select * from socialmediaapps where id='$eid'";
+    $result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+    }else{
+        $sql = "Select * from socialmediaapps";
+        $result = $conn->query($sql);
+    }
+
+    if (isset($_POST['btnUpdate'])) {
+      $id = $_POST['id'];
+      $name = $_POST['name'];
+      $link = $_POST['link'];
+      $privacylink = $_POST['privacylink'];
+
+      if(isset($_FILES["logo"]) && $_FILES["logo"]["error"]==0)
+      {
+        // Real file name
+        $logo = $_FILES["logo"]["name"];
+        // file path
+        $filepath = $_FILES["logo"]["tmp_name"];
+      } else{
+       $sql = "Select logo from socialmediaapps where id='$id'";
+       $res = $conn->query($sql);
+       $test = $res->fetch_assoc();
+       $logo = $test['logo'];
+      }
+      $sql = "UPDATE socialmediaapps SET name='$name', logo='$logo', link='$link', 'privacylink'='$privacylink'
+           where id = $id ";
+       if ($conn->query($sql) == true) {
+       move_uploaded_file($filepath, "images/".$image);
+       echo "<div> Update a record successfully</div>";
+       header("location:socialmediaapps.php");
+ 
+    }       
+  }
+
   $sql1="SELECT * from socialmediaapps";
-  $result=$conn->query($sql1);
+  $result=$conn->query($sql1);  
 
   ?>
   <body>
@@ -58,19 +98,32 @@
         <h2>Social Media Apps Set up</h2>
 
         <form action="#" method="post" enctype="multipart/form-data">
+
+          <input type="hidden" name="id" value="<?php echo isset($row['id'])? $row['id'] : "" ?>">
+
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
+          <input type="text" id="name" name="name"
+          value="<?php echo isset($row['name'])? $row['name'] : "" ?>" required />
 
           <label for="name">Logo:</label>
-          <input type="file" id="name" name="logo" required />
+          <input type="file" id="name" name="logo"/>
 
           <label for="name">Login Link:</label>
-          <input type="text" id="name" name="llink" required />
+          <input type="text" id="name" name="link" 
+          value="<?php echo isset($row['link'])? $row['link'] : "" ?>" required />
 
           <label for="name">Privacy Setting Link:</label>
-          <input type="text" id="name" name="plink" required />
+          <input type="text" id="name" name="privacylink"
+          value="<?php echo isset($row['privacylink'])? $row['privacylink'] : "" ?>" required />
 
-          <button type="submit" name="btnSave">Save</button>
+          <?php
+            if (isset($_GET['editId'])) {
+            ?>  
+              <button type="submit" name="btnUpdate">Update</button>
+            <?php
+            }else{ ?>
+               <button type="submit" name="btnSubmit">Save</button>
+             <?php  }  ?>
         </form>
         <br><br>
         <hr>
@@ -96,10 +149,12 @@
           <tr>
             <td><?php echo $row['id']; ?></td>
             <td><?php echo $row['name']; ?></td>
-            <td><img src="<?php echo "images\\" . $row['logo']; ?>" width="100px" height="100px" ></td>
+            <td><img src="<?php echo "images\\".$row['logo']; ?>" width="100px" height="100px" ></td>
             <td><?php echo $row['link']; ?></td>
             <td><?php echo $row['privacylink']; ?></td>
-            <td><a href=""> Edit </a> <a href="">Delete</a></td>
+            <td>
+            <a href="socialmediaappSetup.php?editId=<?php echo $row['id'];?>">Edit</a>
+              <a href="">Delete</a></td>
           </tr>
           <?php 
            }

@@ -8,19 +8,59 @@
   </head>
   <?php 
     include('dbconnect.php');
-    if(isset($_GET['btnSubmit']))
+    if(isset($_POST['btnSubmit']))
     {
-      $title=$_GET['title'];
-      $des=$_GET['des'];
-      $info=$_GET['info'];
+      $title=$_POST['title'];
+      $des=$_POST['des'];
+      $info=$_POST['info'];
   
       $sql="INSERT INTO services (title, description, info ) VALUES ('$title', '$des', '$info')";
       if($conn->query($sql)==TRUE)
       {
         echo " Insert service successfully ";
-        header("location:serviceSetup.php");
+        header("location:servicesSetup.php");
       }
     }
+
+      
+    if (isset($_GET['deleteId'])) {
+      $did = $_GET['deleteId'];
+
+      $sql = "Delete from services where id='$did'";
+      if ($conn->query($sql) == true) {
+         echo "<div> Delete a record successfully</div>";
+         header("location:servicesSetup.php");
+      }
+  }
+
+// edit service
+  
+      if (isset($_GET['editId'])) {
+        $did = $_GET['editId'];
+        $sql = "Select * from services where id='$did'";
+        $result = $conn->query($sql);
+        $row = $result->fetch_assoc();
+    }else{
+        $sql = "Select * from services";
+        $result = $conn->query($sql);
+    }
+
+    // update service
+
+    if (isset($_POST['btnUpdate'])) {
+      $id = $_POST['id'];
+      $title = $_POST['title'];
+      $des = $_POST['des'];
+      $info = $_POST['info'];
+
+      $sql = "UPDATE services SET title='$title', description='$des', info='$info'
+              where id = $id ";
+      if ($conn->query($sql) == true) {
+      echo "<div> Update a record successfully</div>";
+      header("location:servicesSetup.php");
+      
+      }    
+  }
 
     $sql1="SELECT * from services";
     $result=$conn->query($sql1);
@@ -49,17 +89,34 @@
       <section id="contact">
 
         <!-- Contact Form -->
-        <form action="#" method="GET">
-          <label for="name">Title:</label>
-          <input type="text" id="name" name="title" required />
+        <form action="#" method="POST">
 
-          <label for="message">Description:</label>
-          <textarea id="message" name="des" rows="4" required></textarea>
+          <input type="hidden" name="id" value="<?php echo isset($row['id'])? $row['id'] : "" ?>">
+
+          <label for="name">Title:</label>
+          <input type="text" id="name" name="title" 
+          value="<?php echo isset($row['title'])? $row['title'] : "" ?>" required />
+
+          <label for="description">Description:</label>
+          <textarea id="description" name="des" rows="4" required>
+            <?php echo isset($row['description'])? $row['description'] : "" ?>
+          </textarea>
 
           <label for="message">Info:</label>
-          <textarea id="message" name="info" rows="4" required></textarea>
+          <textarea id="message" name="info" rows="4" required>
+            <?php echo isset($row['info'])? $row['info'] : "" ?>
+          </textarea>
 
-          <button type="submit" name="btnSubmit">Save</button>
+          <?php
+            if (isset($_GET['editId'])) {
+            ?>  
+              <button type="submit" name="btnUpdate">Update</button>
+            <?php
+            }else{ ?>
+               <button type="submit" name="btnSubmit">Save</button>
+             <?php  }  ?>
+
+          
         </form>
         <br><br>
         <hr>
@@ -88,7 +145,10 @@
             <td><?php echo $row['description']; ?></td>
             <td><?php echo $row['info']; ?></td>
             <td><?php echo $row['createdat']; ?></td>
-            <td><a href=""> Edit </a> <a href="">Delete</a></td>
+            <td>
+            <a href="servicesSetup.php?editId=<?php echo $row['id'];?>">Edit</a>
+              <a href="servicesSetup.php?deleteId=<?php echo $row['id']; ?>">Delete</a>
+            </td>
           </tr>
           <?php 
            }
