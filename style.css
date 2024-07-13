@@ -8,6 +8,7 @@
   --primary : #003800;
   --secondary: #fef1e0;
   --third: #a9f979a6;
+  --lightThird: #bcffae2b;
   --bg-light: white;
   --bg-primary: #FBFADA;
   --text-primary: #471509;
@@ -165,15 +166,6 @@
 
 
 
-  .popular-apps,
-  .stay-safe-online {
-    margin-top: 20px;
-    padding: 20px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
 
   #contact {
     max-width: 600px;
@@ -420,14 +412,26 @@
 
  /* // main */
 
+ .search-form{
+  border: 1px solid var(--primary);
+  border-radius: 30px;
+  padding: 0px 20px ;
+  width: 700px;
+  margin: 0 auto;
+ }
+
+
  .search{
   width: 700px;
   height: 60px;
-  padding: 10px 20px;
-  border: 1px solid var(--primary);
-  border-radius: 30px;
   font-size: 17px;
+  border: 0px;
  }
+
+ input:focus{
+  outline: none;
+ }
+
 
  .search-btn{
   
@@ -455,4 +459,92 @@
 
 .service-register{
   display: inline-block;
+}
+
+/* =========== popular social media apps ============= */
+
+.popular-apps{
+  /* background-color: var(--third); */
+  padding: 50px;
+  border: 1 px solid var(--primary);
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.popular-apps > h2{
+  text-align: center;
+}
+
+.stay-safe-online{
+  margin-top: 70px;
+  background: var(--lightThird);
+  padding: 50px;
+  border-radius: 30px;
+}
+
+/* ========= login ================== */
+
+#account{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.account-img-container > img{
+  width: 100%;
+}
+
+.account-container .register{
+  width: 800px;
+}
+
+.account-container .login{
+  width: 500px ;
+}
+
+
+.account-container{
+  border: 1px solid var(--third);
+    padding: 40px;
+    border-radius: 20px;
+ box-shadow:   5.4px 10.7px 10.7px var(--third);
+}
+
+.account-container > h2 {
+  margin-bottom: 10px;
+}
+
+.account-container > form >  button{
+  width: 100%;
+  margin-top: 30px;
+}
+
+.account-control{
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.account-control > input{
+  width: 100%;
+  height: 45px;
+  border: 0px;
+  border-radius: 12px;
+  margin-top: 8px;
+  background-color: var(--third);
+  padding: 0px 20px;
+}
+
+.news-letter{
+  margin-top: 30px;
+}
+
+.rdo
+{
+  margin-right: 20px;
+}
+
+.rdo input{
+  margin-right: 10px;
 }

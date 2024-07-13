@@ -32,62 +32,63 @@ if(isset($_POST['btnReg']))
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <nav>
-      <ul>
-        <li class="link"><a href="index.php">Home</a></li>
-        <li class="link"><a href="binformation.php">Information</a></li>
-        <li class="link"><a href="blegislation.php">Legislation</a></li>
-        <li class="link"><a href="login.php">Login</a></li>
-      </ul>
-     
-    </nav>
-    <header>
-      <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
      
     <main>
-      <section id="contact">
-        <h2>Registration</h2>
-      
-        <!-- Contact Form -->
-        <form action="#" method="POST">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required />
-
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
-
-          <label for="name">Password:</label>
-          <input type="password" id="name" name="password" required />
-
-          <label for="name">City:</label>
-          <input type="text" id="name" name="city" required />
-
-          <label for="name">Newsletter Subscription:</label>
-          <input type="radio" id="name" name="sub" value="1" required />Yes
-          <input type="radio" id="name" name="sub" value="0" required />No
+      <section id="account">
+        <div class="account-container .register">
+            <h2>Registration</h2>
           
-          <button type="submit" name="btnReg">Register</button>
-        </form>
+          <!-- Contact Form -->
+          <form action="#" method="POST">
 
-        <!-- Privacy Policy Link -->
-        <p>
-          Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
+          <div class="container">
+              <div class="col-2">
+              <div class="account-control">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required />
+              </div>
+              <div class="account-control">
+                <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+              </div>
+              </div>
+              <div class="col-2">
+                  <div class="account-control">
+                  <label for="name">Password:</label>
+                  <input type="password" id="name" name="password" required />
+              </div>
+              <div class="account-control">
+                  <label for="name">City:</label>
+                  <input type="text" id="name" name="city" required />
+              </div>
+              </div>
+
+          </div>
+
+          <div class="news-letter">
+              <label for="name">Newsletter Subscription</label> <br> <br>
+              <div class="d-flex ">
+                  <div class="rdo">
+                    <input type="radio" id="name" name="sub" value="1" required />Yes
+                  </div>
+                  <div class="rdo">
+                  <input type="radio" id="name" name="sub" value="0" required />No
+                    </div>
+              </div>
+          </div>
+       
+            <button class="btn btn-dark" type="submit" name="btnReg">Register</button>
+          </form>
+
+          <!-- Privacy Policy Link -->
+          <p class=" mt-10">
+            Before sending a message, please review our
+            <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+          </p>
+        </div>
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Registration</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+   
   </body>
 </html>

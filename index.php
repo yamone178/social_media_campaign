@@ -64,7 +64,11 @@
 
     <main>
       <section id="home">
-        <form action="/search" class="d-flex justify-center align-center" method="get">
+        <form action="/search" class="d-flex justify-center align-center search-form" method="get">
+          <div>
+          <img src="./images/search.png" class=" mr-20" alt="" width="20px"> 
+
+          </div> 
           <input
             type="text"
             id="search"
@@ -72,8 +76,8 @@
             placeholder="Search..."
             class="search mr-20"
           />
-          <button type="submit" class=" search-btn btn btn-primary  ">
-              <img src="./images/search.png" alt="" width="20px">   
+          <button type="submit" class=" search-btn btn btn-dark  ">
+                Search
           </button>
         </form>
        
@@ -127,7 +131,7 @@
 
         <!-- Most Popular Social Media Apps -->
         <section class="popular-apps">
-          <h3>Most Popular Social Media Apps</h3>
+          <h2>Most Popular Social Media Apps</h2>
           <ul>
             <li>Instagram</li>
             <li>Facebook</li>
@@ -141,16 +145,27 @@
 
         <!-- How to Stay Safe Online -->
         <section class="stay-safe-online">
-          <h3>How to Stay Safe Online</h3>
-          <p>Follow these tips to ensure a secure online experience:</p>
-          <ul>
-            <li>Set strong, unique passwords</li>
-            <li>Enable two-factor authentication</li>
-            <li>Be cautious about sharing personal information</li>
-            <li>Regularly update privacy settings</li>
-            <li>Use antivirus software</li>
-            <li>Verify the authenticity of online information</li>
-          </ul>
+
+          <h2></h2>
+
+          <div class="container">
+            <div class=" col-2">
+              <img src="./images/undraw_buffer_wq43.svg" width="100%" height="300px" alt="">
+            </div>
+            <div class=" col-2">
+                <h2>How to Stay Safe Online</h2>
+                <p>Follow these tips to ensure a secure online experience:</p>
+                <ul>
+                  <li>Set strong, unique passwords</li>
+                  <li>Enable two-factor authentication</li>
+                  <li>Be cautious about sharing personal information</li>
+                  <li>Regularly update privacy settings</li>
+                  <li>Use antivirus software</li>
+                  <li>Verify the authenticity of online information</li>
+                </ul>
+            </div>
+          </div>
+          
         </section>
       </section>
     </main>

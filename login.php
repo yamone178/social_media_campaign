@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <nav>
+  <!-- <nav>
       <ul>
         <li class="link"><a href="index.php">Home</a></li>
         <li class="link"><a href="binformation.php">Information</a></li>
@@ -15,46 +15,49 @@
         <li class="link"><a href="login.php">Login</a></li>
       </ul>
      
-    </nav>
-    <header>
+  </nav> -->
+    <!-- <header>
       <h1>Online Safety Campaign</h1>
-      <!-- Custom Cursors and 3D Illustrations can be added here -->
-    </header>
+       Custom Cursors and 3D Illustrations can be added here -->
+    <!-- </header>  -->
 
     <main>
-      <section id="contact">
-        <h2>Login</h2>
+      <section id="acccount">
+        
+            <div class="account-container .login">
+             <h2 class="">account</h2>
+             <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, aliquid.</small>
 
-        <!-- Contact Form -->
-        <form action="login-success.php" method="POST">
-         
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required />
+<!-- Contact Form -->
+            <form action="account-success.php" method="POST">
+            
+              <div class="account-control">
+                <label for="email">Email</label> <br>
+                <input type="email" id="email" name="email"
+                placeholder="example@gmail.com" required /> 
+              </div>
 
-          <label for="message">Password:</label>
-          <input type="password" id="email" name="password" required />
-
-          <button type="submit">Login</button>
-        </form>
-        <br>
-         Not a member register <a href="registration.php"> here </a>
-        <!-- Privacy Policy Link -->
-        <p>
-          Before sending a message, please review our
-          <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
-        </p>
+             <div class="account-control">
+                <label for="message">Password</label> <br>
+                 <input type="password" id="email" name="password"
+                 placeholder="your password" required />
+             </div>
+              <button type="submit" class="btn btn-dark">account</button>
+            </form>
+            <br>
+           <p class=""> Not a member register <a href="registration.php"> here </a></p>
+            <!-- Privacy Policy Link -->
+            <p class=" mt-5">
+              Before sending a message, please review our
+              <a href="privacy-policy.html" target="_blank">Privacy Policy</a>.
+              </p>
+            </div>
+    
+        
+       
       </section>
     </main>
 
-    <footer>
-      <p>You are here: Login</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
-    </footer>
+   
   </body>
 </html>
