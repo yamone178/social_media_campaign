@@ -20,27 +20,48 @@
       </ul>
     
     </nav>
+
+    <div class="section-divider"></div>
     <header>
-      <h1>Online Safety Campaign</h1>
+    <h1>Welcome to Our Campaign</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
 
+    <div class="page-container">
     <main>
       <section id="home">
-        <h2>Welcome to Our Campaign</h2>
+      
         
+        <div class="container">
+            
+            <a href="servicesSetup.php" class="page-link">
+                <h3>Services</h3>
+            </a>
+            <a href="newsletterSetup.php" class="page-link">
+                <h3>NewsLetter</h3>
+            </a>
+            <a href="howparenthelpSetup.php" class="page-link">
+                <h3>How Parents Help</h3>
+            </a>
+            <a href="socialmediaappSetup.php" class="page-link">
+                <h3>Social Media Apps</h3>
+            </a>
+            <a href="contactList.php" class="page-link">
+                <h3>Help/Support</h3>
+            </a>
+            <a href="MemberList.php" class="page-link">
+                <h3>Member List</h3>
+            </a>
+        </div>
       </section>
     </main>
 
+    <div class="section-divider"></div>
     <footer>
-      <p>You are here: Home</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
+        <div class="footer-container justify-center">
+          <h4 class="">Copyright &copy 2024 by safeteenonline  All Rights Reserved</h4>
+        </div>
     </footer>
+    </div>
   </body>
 </html>

@@ -81,51 +81,68 @@
      
     </nav>
     <header>
-      <h1>Services Set up</h1>
+      <h1 class="setup-title">Services Set up</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
 
+    <div class="page-container">
     <main>
-      <section id="contact">
+      <section id="servicesSetup">
 
         <!-- Contact Form -->
-        <form action="#" method="POST">
 
-          <input type="hidden" name="id" value="<?php echo isset($row['id'])? $row['id'] : "" ?>">
+        <div class="setup-form">
+            <form action="#" method="POST">
 
-          <label for="name">Title:</label>
-          <input type="text" id="name" name="title" 
-          value="<?php echo isset($row['title'])? $row['title'] : "" ?>" required />
+              <input type="hidden" name="id" value="<?php echo isset($row['id'])? $row['id'] : "" ?>">
 
-          <label for="description">Description:</label>
-          <textarea id="description" name="des" rows="4" required>
-            <?php echo isset($row['description'])? $row['description'] : "" ?>
-          </textarea>
+              <div class="form-control">
+                  <label for="name">Title:</label> 
 
-          <label for="message">Info:</label>
-          <textarea id="message" name="info" rows="4" required>
-            <?php echo isset($row['info'])? $row['info'] : "" ?>
-          </textarea>
+                  <input type="text" id="name" name="title" 
+                  value="<?php echo isset($row['title'])? $row['title'] : "" ?>" required />
+              </div>
 
-          <?php
-            if (isset($_GET['editId'])) {
-            ?>  
-              <button type="submit" name="btnUpdate">Update</button>
-            <?php
-            }else{ ?>
-               <button type="submit" name="btnSubmit">Save</button>
-             <?php  }  ?>
+              <div class="form-control">
+                  <label for="description">Description:</label>
+                  <textarea id="description" name="des" rows="4" required>
+                    <?php echo isset($row['description'])? $row['description'] : "" ?>
+                  </textarea>
+              </div>
 
-          
-        </form>
+
+              <div class="form-control">
+                  <label for="message">Info:</label>
+                  <textarea id="message" name="info" rows="4" required>
+                    <?php echo isset($row['info'])? $row['info'] : "" ?>
+                  </textarea>
+
+              </div>
+
+
+
+              <?php
+                if (isset($_GET['editId'])) {
+                ?>  
+                  <button type="submit" class="btnSubmit btn btn-dark" name="btnUpdate">Update</button>
+                <?php
+                }else{ ?>
+                  <button type="submit" class="btnSubmit btn btn-dark" name="btnSubmit">Save</button>
+                <?php  }  ?>
+
+
+              </form>
+        </div>
+        
+        
         <br><br>
         <hr>
         <?php 
           if($result->num_rows>0)
           {
         ?>
-        <h2> Services List </h2>
-        <table border="1" cellspacing="5" cellpadding="5px">
+        <h2 class="table-title"> Services List </h2>
+        <table cellspacing="0" cellpadding="5px">
           <tr>
             <th>Id</th>
             <th>Title</th>
@@ -146,8 +163,20 @@
             <td><?php echo $row['info']; ?></td>
             <td><?php echo $row['createdat']; ?></td>
             <td>
-            <a href="servicesSetup.php?editId=<?php echo $row['id'];?>">Edit</a>
-              <a href="servicesSetup.php?deleteId=<?php echo $row['id']; ?>">Delete</a>
+                <span class="d-flex">
+                  <a href="servicesSetup.php?editId=<?php echo $row['id'];?>">
+                  <svg xmlns="http://www.w3.org/2000/svg"   class="bi bi-pencil-square" viewBox="0 0 16 16">
+                    <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                    <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5z"/>
+                  </svg>
+              </a>
+                <a href="servicesSetup.php?deleteId=<?php echo $row['id']; ?>">
+                      <svg xmlns="http://www.w3.org/2000/svg"  class="bi bi-trash" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5m3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0z"/>
+                      <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z"/>
+                    </svg>
+                </a>
+                </span>
             </td>
           </tr>
           <?php 
@@ -163,16 +192,13 @@
 
       </section>
     </main>
-
+    
+    <div class="section-divider"></div>
     <footer>
-      <p>You are here: Services</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
+        <div class="footer-container justify-center">
+          <h4 class="">Copyright &copy 2024 by safeteenonline  All Rights Reserved</h4>
+        </div>
     </footer>
+    </div>
   </body>
 </html>

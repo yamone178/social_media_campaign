@@ -1,4 +1,18 @@
 <!DOCTYPE html>
+<?php 
+        session_start();
+        if(isset($_SESSION['attempt_again']))
+        {
+            $now = time();
+            if($now >= $_SESSION['attempt_again'])
+            {
+              unset($_SESSION['attempt']);
+              unset($_SESSION['attempt_again']);
+              unset($_SESSION['msg']);
+              unset($_SESSION['check']);
+            }
+        }
+  ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,29 +21,31 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-  <!-- <nav>
-      <ul>
-        <li class="link"><a href="index.php">Home</a></li>
-        <li class="link"><a href="binformation.php">Information</a></li>
-        <li class="link"><a href="blegislation.php">Legislation</a></li>
-        <li class="link"><a href="login.php">Login</a></li>
-      </ul>
-     
-  </nav> -->
-    <!-- <header>
-      <h1>Online Safety Campaign</h1>
-       Custom Cursors and 3D Illustrations can be added here -->
-    <!-- </header>  -->
 
     <main>
-      <section id="acccount">
+      <section id="account">
         
-            <div class="account-container .login">
-             <h2 class="">account</h2>
+            <div class="account-container login">
+             <h2 class="">Login</h2>
              <small>Lorem ipsum dolor sit amet consectetur adipisicing elit. In, aliquid.</small>
 
 <!-- Contact Form -->
-            <form action="account-success.php" method="POST">
+
+<?php
+                    if(isset($_SESSION['msg']))
+                    {
+                ?>
+                <div class="alert-msg">
+                    <?php 
+                        echo $_SESSION['msg'];
+                    ?>
+                </div>
+                <?php
+                    }
+                    if(isset($_SESSION['check']) != 1)
+                    {
+                ?>
+            <form action="login-success.php" method="POST">
             
               <div class="account-control">
                 <label for="email">Email</label> <br>
@@ -42,8 +58,10 @@
                  <input type="password" id="email" name="password"
                  placeholder="your password" required />
              </div>
-              <button type="submit" class="btn btn-dark">account</button>
+              <button type="submit" class="btn btn-dark">Login</button>
             </form>
+
+            <?php } ?>
             <br>
            <p class=""> Not a member register <a href="registration.php"> here </a></p>
             <!-- Privacy Policy Link -->

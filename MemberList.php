@@ -27,19 +27,21 @@
       </ul>
     
     </nav>
+    <div class="section-divider"></div>
+  
     <header>
       <h1>MemberList</h1>
       <!-- Custom Cursors and 3D Illustrations can be added here -->
     </header>
-
+    <div class="page-container">
     <main>
-      <section id="contact">
+      <section id="contact" class=" d-flex justify-center align-center">
         
         <?php 
           if($result->num_rows>0)
           {
         ?>
-        <h2>Member List</h2>
+     
         <table border="1" cellspacing="5" cellpadding="5px">
           <tr>
             <th>Id</th>
@@ -79,15 +81,12 @@
       </section>
     </main>
 
+    <div class="section-divider"></div>
     <footer>
-      <p>You are here: MemberList</p>
-      <div class="footer-content">
-        <p>&copy; 2024 Online Safety Campaign</p>
-        <!-- Add social media buttons with relevant links -->
-        <a href="#" style="color: white">Facebook</a>
-        <a href="#" style="color: white; margin-left: 10px">Twitter</a>
-        <a href="#" style="color: white; margin-left: 10px">Instagram</a>
-      </div>
+        <div class="footer-container justify-center">
+          <h4 class="">Copyright &copy 2024 by safeteenonline  All Rights Reserved</h4>
+        </div>
     </footer>
+    </div>
   </body>
 </html>
